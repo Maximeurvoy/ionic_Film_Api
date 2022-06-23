@@ -1,20 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Mettre en Majuscule </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="film" placeholder="Film"></ion-input>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-button
+      size="large"
+      expand="block"
+      color="success"
+      (click)="onRecherche()"
+    >
+      <ion-icon name="search-circle-outline"></ion-icon>
+    </ion-button>
+
+    <ion-item *ngFor="let item of films">
+      {{ item.Title }} {{ item.Year }}
+      <ion-img [src]="item.Poster" style="width: 40px"></ion-img>
+
+      <ion-button color="danger" (click)="onFavorite(item)">
+        <ion-icon name="search-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-title>Favory !</ion-title>
+    <ion-item *ngFor="let item of favorites">
+      {{ item.Title }} {{ item.Year }}
+      <ion-img [src]="item.Poster" style="width: 40px"></ion-img>
+    </ion-item>
+
+  </ion-list>
 </ion-content>

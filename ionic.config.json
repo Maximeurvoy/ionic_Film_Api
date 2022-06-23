@@ -1,0 +1,7 @@
+{
+  "name": "tpfilm",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Mettre en Majuscule </ion-title>
+    <ion-title>Popcorn ciné</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item>
-      <ion-input [(ngModel)]="film" placeholder="Film"></ion-input>
+      <ion-input [(ngModel)]="film" placeholder="Titre"></ion-input>
     </ion-item>
 
     <ion-button
@@ -25,8 +25,9 @@
           <ion-button
           size="large"
           expand="block"
-          color="success"
+          class="none"
           (click)="onDisplay('resultats')"
+          [ngClass]="{'active': displayType === 'resultats'}"
         >
         <ion-title>Resultat</ion-title>
         </ion-button>
@@ -35,8 +36,9 @@
         <ion-button
         size="large"
         expand="block"
-        color="success"
+        class="none"
         (click)="onDisplay('favoris')"
+        [ngClass]="{'active': displayType === 'favoris'}"
       >
       <ion-title>Favoris</ion-title>
       </ion-button>

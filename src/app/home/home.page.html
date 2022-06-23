@@ -19,7 +19,26 @@
       <ion-icon name="search-circle-outline"></ion-icon>
     </ion-button>
 
-    <ion-item *ngFor="let item of films">
+    <ion-card *ngFor="let item of films">
+      <ion-img [src]="item.Poster"></ion-img>
+      <ion-card-header>
+        <ion-grid>
+          <ion-row class="ion-justify-content-start">
+            <ion-col size="8">
+              <ion-card-subtitle> {{ item.Title }}</ion-card-subtitle>
+              <ion-card-title>{{ item.Year }}</ion-card-title>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button color="danger" (click)="onFavorite(item)">
+                <ion-icon name="heart"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-header>
+    </ion-card>
+
+    <!-- <ion-item *ngFor="let item of films">
       {{ item.Title }} {{ item.Year }}
       <ion-img [src]="item.Poster" style="width: 40px"></ion-img>
 
@@ -31,7 +50,6 @@
     <ion-item *ngFor="let item of favorites">
       {{ item.Title }} {{ item.Year }}
       <ion-img [src]="item.Poster" style="width: 40px"></ion-img>
-    </ion-item>
-
+    </ion-item> -->
   </ion-list>
 </ion-content>

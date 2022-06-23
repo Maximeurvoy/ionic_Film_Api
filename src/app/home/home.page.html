@@ -22,6 +22,30 @@
     <ion-grid>
       <ion-row class="ion-justify-content-start">
         <ion-col size="6">
+          <ion-button
+          size="large"
+          expand="block"
+          color="success"
+          (click)="onDisplay('resultats')"
+        >
+        <ion-title>Resultat</ion-title>
+        </ion-button>
+        </ion-col>
+        <ion-col size="6">
+        <ion-button
+        size="large"
+        expand="block"
+        color="success"
+        (click)="onDisplay('favoris')"
+      >
+      <ion-title>Favoris</ion-title>
+      </ion-button>
+      </ion-col>
+      </ion-row></ion-grid>
+
+    <ion-grid>
+      <ion-row class="ion-justify-content-start">
+        <ion-col size="12" *ngIf="displayType === 'resultats'">
           <ion-title>Search</ion-title>
           <ion-card *ngFor="let item of films">
             <ion-img [src]="item.Poster"></ion-img>
@@ -43,8 +67,8 @@
           </ion-card>
         </ion-col>
 
-        <ion-col size="6">
-          <ion-title>favori</ion-title>
+        <ion-col size="12" *ngIf="displayType === 'favoris'">
+          <ion-title>favoris</ion-title>
           <ion-card *ngFor="let item of favorites">
             <ion-img [src]="item.Poster"></ion-img>
             <ion-card-header>

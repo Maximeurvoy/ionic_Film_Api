@@ -14,6 +14,7 @@ export class HomePage {
   anneeFilm = '';
   films: any[]=[];
   favorites: any[]=[];
+  displayType ='favoris';
   constructor(private http: HttpClient) {}
 
   onRecherche() {
@@ -30,10 +31,15 @@ export class HomePage {
       // this.anneeFilm = film.Year;
       // this.image = film.Poster;
     });
+    this.displayType ='resultats';
   }
 
   onFavorite(film: string){
     this.favorites.push(film);
     console.log( this.favorites);
+  }
+
+  onDisplay(type: string){
+    this.displayType = type;
   }
 }
